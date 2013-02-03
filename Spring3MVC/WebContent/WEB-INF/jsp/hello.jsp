@@ -6,5 +6,3 @@
     ${message}
 </body>
 </html>
-
-new
