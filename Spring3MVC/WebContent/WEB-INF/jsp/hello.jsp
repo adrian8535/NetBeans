@@ -7,21 +7,4 @@
 </body>
 </html>
 
-    ${message}
-</body>
-</html>
-    ${message}
-</body>
-</html>
-    ${message}
-</body>
-</html>
-    ${message}
-</body>
-</html>
-    ${message}
-</body>
-</html>
-    ${message}
-</body>
-</html>
+
