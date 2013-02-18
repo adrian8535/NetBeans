@@ -10,19 +10,21 @@ import javax.sql.DataSource;
 
 import org.koushik.javabrains.model.Circle;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
 public class JdbcDaoImpl {
-	@Autowired
+	
 	private DataSource dataSource;
+	private JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
 	public DataSource getDataSource() {
 		return dataSource;
 	}
-
+	@Autowired
 	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
 	public Circle getCircle(int circleId) {
@@ -48,10 +50,30 @@ public class JdbcDaoImpl {
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-/*		finally {
+		finally {
 			try {
 			conn.close();
 			} catch (SQLException e) {}
-		}*/
+		}
+	}
+	
+	public int getCircleCount() {
+		String sql = "SELECT COUNT(*) FROM CIRCLE";
+		return jdbcTemplate.queryForInt(sql);
+	
+	}
+	
+	public String getCircleName(int circleId) {
+		String sql = "SELECT NAME FROM CIRCLE WHERE ID = ?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {circleId}, String.class);
+		
+	}
+
+	public JdbcTemplate getJdbcTemplate() {
+		return c;
+	}
+
+	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
 }
