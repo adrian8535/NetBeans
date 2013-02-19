@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,29 +20,14 @@ public class UserDetails {
 	@Id @GeneratedValue
 	private int userId;
 	private String username;
-	@Temporal (TemporalType.DATE)
-	private Date joinedDate;
-	private String Address;
-	@Lob
-	private String description;
+	@Embedded
+	private Address address;
 	
-	public Date getJoinedDate() {
-		return joinedDate;
+	public Address getAddress() {
+		return address;
 	}
-	public void setJoinedDate(Date joinedDate) {
-		this.joinedDate = joinedDate;
-	}
-	public String getAddress() {
-		return Address;
-	}
-	public void setAddress(String address) {
-		Address = address;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	public int getUserId() {
 		return userId;
