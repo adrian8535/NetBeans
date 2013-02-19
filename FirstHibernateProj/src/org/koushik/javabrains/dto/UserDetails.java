@@ -17,7 +17,6 @@ import javax.persistence.Transient;
 public class UserDetails {
 	@Id
 	private int userId;
-	@Transient
 	private String username;
 	@Temporal (TemporalType.DATE)
 	private Date joinedDate;
@@ -50,7 +49,7 @@ public class UserDetails {
 		this.userId = userId;
 	}
 	public String getUsername() {
-		return username + "from getter";
+		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
