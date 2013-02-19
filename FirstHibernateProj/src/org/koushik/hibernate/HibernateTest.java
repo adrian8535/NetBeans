@@ -15,16 +15,16 @@ public class HibernateTest {
 	public static void main(String[] args) {
 
 		UserDetails user = new UserDetails();
-		user.setUserId(1);
 		user.setUsername("First user");
-		user.setAddress("First user's address");
-		user.setJoinedDate(new Date());
-		user.setDescription("Description of the user goes here");
-		 
+
+		UserDetails user2 = new UserDetails();
+		user2.setUsername("2nd user"); 
+		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		session.save(user);
+		session.save(user2);
 		session.getTransaction().commit();
 		session.close();
 		
