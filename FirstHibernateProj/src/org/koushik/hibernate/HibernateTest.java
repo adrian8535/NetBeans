@@ -22,7 +22,13 @@ public class HibernateTest {
 		addr.setCity("Szn");
 		addr.setStreet("Kras");
 		
-		user.setAddress(addr);
+		user.setHomeAddress(addr);
+		
+		Address addr2 = new Address();
+		addr2.setCity("2nd Szn");
+		addr2.setStreet("2nd Kras");
+		
+		user.setOfficeAddress(addr2);
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
