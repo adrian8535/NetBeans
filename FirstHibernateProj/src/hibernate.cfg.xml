@@ -54,6 +54,8 @@
         <!-- Names the annotated entity class -->
         <mapping class="org.koushik.javabrains.dto.UserDetails"/>
         <mapping class="org.koushik.javabrains.dto.Vehicle"/>
+        <mapping class="org.koushik.javabrains.dto.TwoWheeler"/>
+        <mapping class="org.koushik.javabrains.dto.FourWheeler"/>
 
     </session-factory>
 
