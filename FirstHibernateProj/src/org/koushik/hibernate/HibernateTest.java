@@ -33,7 +33,6 @@ public class HibernateTest {
 		user.getListOfAddresses().add(addr1);
 		user.getListOfAddresses().add(addr2);
 		
-		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -42,11 +41,11 @@ public class HibernateTest {
 		session.close();
 		
 		user = null;
-		
-	    session = sessionFactory.openSession();
-		session.beginTransaction();
+		session = sessionFactory.openSession();
 		user = (UserDetails) session.get(UserDetails.class, 1);
-		System.out.println("User name retrieved : " + user.getUsername());
+		session.close();
+		System.out.println(user.getListOfAddresses().size());
+		
 		
 	}
 
