@@ -20,6 +20,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,15 +36,15 @@ public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String username;
-	@ElementCollection(fetch=FetchType.EAGER)
-	@JoinTable(name="USER_ADDRESS", joinColumns=@JoinColumn(name="USER_ID"))
-	private Collection<Address> listOfAddresses = new ArrayList<Address>();
+	@OneToOne
+	@JoinColumn(name="VEHICLE_ID")
+	private Vehicle vehicle;
 	
-	public Collection<Address> getListOfAddresses() {
-		return listOfAddresses;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
-	public void setListOfAddresses(Collection<Address> listOfAddresses) {
-		this.listOfAddresses = listOfAddresses;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 	public int getUserId() {
 		return userId;
