@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
@@ -38,7 +39,7 @@ public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String username;
-	@ManyToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 	
 	public Collection<Vehicle> getVehicle() {
