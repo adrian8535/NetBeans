@@ -25,14 +25,19 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		Query query = session.createQuery("from UserDetails where userId > 5");
+		Query query = session.createQuery("select max(userId) from UserDetails");
+		query.setFirstResult(5);
+		query.setMaxResults(4);
 		query.list();
-		List users = query.list();
+		List<String> userNames = (List<String>) query.list();
 		
 		
 		session.getTransaction().commit();
 		session.close();
-		System.out.println("Users No: " + users.size());
+  
+		for (String u: userNames) {
+			System.out.println(u);
+		}
 	}
 
 }
