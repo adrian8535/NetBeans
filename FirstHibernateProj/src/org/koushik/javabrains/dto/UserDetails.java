@@ -34,7 +34,6 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 @Entity 
-@org.hibernate.annotations.Entity(selectBeforeUpdate=true)
 public class UserDetails {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
