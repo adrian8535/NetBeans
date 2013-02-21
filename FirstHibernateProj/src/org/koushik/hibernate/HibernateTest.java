@@ -18,23 +18,14 @@ public class HibernateTest {
 	 */
 	public static void main(String[] args) {
 		
-		Vehicle vehicle = new Vehicle();
-		vehicle.setVehicleName("Car");
-		
-		TwoWheeler bike = new TwoWheeler();
-		bike.setVehicleName("bike");
-		bike.setSteeringHandle("Bike steering handle");
-		
-		FourWheeler car = new FourWheeler();
-		car.setVehicleName("Porsche");
-		car.setSteeringWheel("Porsche steering wheel");
-		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(vehicle);
-		session.save(bike);
-		session.save(car);
+		
+		UserDetails user = (UserDetails) session.get(UserDetails.class, 5);
+		user.setUsername("Updated name");
+		session.update(user);
+
 		session.getTransaction().commit();
 		session.close();
 
