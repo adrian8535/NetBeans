@@ -3,10 +3,12 @@ package org.koushik.hibernate;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 import org.koushik.javabrains.dto.Address;
 import org.koushik.javabrains.dto.FourWheeler;
 import org.koushik.javabrains.dto.TwoWheeler;
@@ -25,10 +27,12 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		Query query = session.getNamedQuery("UserDetails.byName");
-		query.setString(0, "User 10");
+		Criteria criteria = session.createCriteria(UserDetails.class);
+		criteria.add(Restrictions.eq("username", "User 10"));
+		
+		
 
-		List<UserDetails> users = (List<UserDetails>) query.list();
+		List<UserDetails> users = (List<UserDetails>) criteria.list();
 		
 		session.getTransaction().commit();
 		session.close();
