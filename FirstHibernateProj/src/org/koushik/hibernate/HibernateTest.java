@@ -18,13 +18,16 @@ public class HibernateTest {
 	 */
 	public static void main(String[] args) {
 		
+		UserDetails user = new UserDetails();
+		user.setUsername("Test user");
+		
+		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		UserDetails user = (UserDetails) session.get(UserDetails.class, 5);
-		user.setUsername("Updated name");
-		session.update(user);
+		user.setUsername("Updated user");
+		session.save(user);
 
 		session.getTransaction().commit();
 		session.close();
