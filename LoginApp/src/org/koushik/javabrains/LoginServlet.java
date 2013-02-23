@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.koushik.javabrains.dto.User;
 import org.koushik.javabrains.service.LoginService;
 
 /**
@@ -29,6 +30,7 @@ public class LoginServlet extends HttpServlet {
 		boolean result = loginService.authenticate(userId, password);
 		
 		if (result) {
+			User user = loginService.getUserDetails(userId);
 			response.sendRedirect("success.jsp");
 			return;
 		}
