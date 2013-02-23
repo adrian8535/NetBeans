@@ -1,6 +1,8 @@
 package org.koushik.javabrains;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +33,13 @@ public class LoginServlet extends HttpServlet {
 		
 		if (result) {
 			User user = loginService.getUserDetails(userId);
-			response.sendRedirect("success.jsp");
+			if (user.getUserName() == null) {
+				response.sendRedirect("login.jsp");
+				return;
+			}
+			request.setAttribute("user", user);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
 			return;
 		}
 		else {
