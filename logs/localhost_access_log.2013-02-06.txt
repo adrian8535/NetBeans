@@ -1,0 +1,14 @@
+127.0.0.1 - - [06/Feb/2013:12:26:19 +0100] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:24 +0100] "GET /Spring3MVC/ HTTP/1.1" 200 982
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:30 +0100] "POST /Spring3MVC/addContact.html HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:31 +0100] "GET /Spring3MVC/contacts.html HTTP/1.1" 200 982
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:38 +0100] "POST /Spring3MVC/addContact.html HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:38 +0100] "GET /Spring3MVC/contacts.html HTTP/1.1" 200 982
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:58 +0100] "GET /Spring3MVC/contacts.html HTTP/1.1" 200 982
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:26:59 +0100] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:27:03 +0100] "POST /Spring3MVC/addContact.html HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:27:03 +0100] "GET /Spring3MVC/contacts.html HTTP/1.1" 200 982
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:27:03 +0100] "GET /favicon.ico HTTP/1.1" 404 973
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:27:13 +0100] "POST /Spring3MVC/addContact.html HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:27:13 +0100] "GET /Spring3MVC/contacts.html HTTP/1.1" 200 982
+0:0:0:0:0:0:0:1 - - [06/Feb/2013:12:27:13 +0100] "GET /favicon.ico HTTP/1.1" 404 973
