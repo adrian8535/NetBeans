@@ -10,12 +10,12 @@ import javax.jws.WebParam;
 import javax.ejb.Stateless;
 
 /**
- *
+ *f
  * @author 1
  */
 @WebService(serviceName = "CalculatorWS")
 @Stateless()
-public class CalculatorWS {
+public class vCalculatorWS {
 
 
     @WebMethod(operationName = "add")
