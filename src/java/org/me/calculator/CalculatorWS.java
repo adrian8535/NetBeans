@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
  */
 @WebService(serviceName = "CalculatorWS")
 @Stateless()
-public class vCalculatorWS {
+public class CalculatorWS {
 
 
     @WebMethod(operationName = "add")
